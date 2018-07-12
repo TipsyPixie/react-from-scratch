@@ -1,0 +1,33 @@
+{
+  "name": "react-from-scratch",
+  "version": "1.0.0",
+  "description": "React from scratch",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "build": "npm run flow:build",
+    "flow:build": "./node_modules/.bin/flow-remove-types ./src -d ./build",
+    "start": "npm run build && node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TipsyPixie/react-from-scratch.git"
+  },
+  "author": {
+    "name": "Seongjae Hwang",
+    "email": "lotsofluck4m@gmail.com"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/TipsyPixie/react-from-scratch/issues"
+  },
+  "homepage": "https://github.com/TipsyPixie/react-from-scratch#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.76.0",
+    "flow-remove-types": "^1.2.3"
+  }
+}
