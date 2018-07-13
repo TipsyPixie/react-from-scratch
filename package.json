@@ -2,7 +2,7 @@
   "name": "react-from-scratch",
   "version": "1.0.0",
   "description": "React from scratch",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "private": true,
   "scripts": {
     "build": "npm run babel:build",
