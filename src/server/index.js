@@ -1,22 +1,23 @@
-// @flow
-import dotenv from 'dotenv';
-import path from 'path';
+import app from '../app';
+import router from '../routes';
+import httpError from 'http-errors';
 
-dotenv.config(
-  { path: path.resolve(__dirname, '../.env') }
-);
+app.use('/', router);
 
-const express = require('express');
-const app = express();
+app.use((req, res, next) => {
+  next(httpError(404));
+});
 
-const debug = require('debug')('debug');
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+});
 
-const port: number = parseInt(process.env.PORT) || 3000;
+const port: number = process.env.PORT && parseInt(process.env.PORT) || 3000;
 app.set('port', port);
 
 const server = app.listen(port);
 server.on('listening', onListening);
 
-function onListening(param: void): void {
-  debug('Listening on ' + app.port);
+function onListening(): void {
+  console.log('Listening on ' + port);
 }
