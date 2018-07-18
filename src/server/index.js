@@ -1,17 +1,15 @@
 // @flow
 import dotenv from 'dotenv';
 import path from 'path';
-import express from 'express';
-// import Debug from 'debug';
 
 dotenv.config(
   { path: path.resolve(__dirname, '../.env') }
 );
+
+const express = require('express');
 const app = express();
 
-// debug('asdf');
-const debug = require('debug')('react-from-scratch:server');
-debug('asdf');
+const debug = require('debug')('debug');
 
 const port: number = parseInt(process.env.PORT) || 3000;
 app.set('port', port);
