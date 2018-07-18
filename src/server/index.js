@@ -1,15 +1,9 @@
 import app from '../app';
-import router from '../routes';
-import httpError from 'http-errors';
+import dotenv from 'dotenv';
+import path from 'path';
 
-app.use('/', router);
-
-app.use((req, res, next) => {
-  next(httpError(404));
-});
-
-app.use((err, req, res, next) => {
-  console.log(err.stack);
+dotenv.config({
+    path: path.resolve(__dirname, '../../.env')
 });
 
 const port: number = process.env.PORT && parseInt(process.env.PORT) || 3000;

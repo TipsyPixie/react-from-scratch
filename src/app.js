@@ -1,11 +1,55 @@
 import express from 'express';
-import dotenv from 'dotenv';
+import router from './routes';
 import path from 'path';
-
-dotenv.config({
-  path: path.resolve(__dirname, '../.env')
-});
+import httpError from 'http-errors';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import morgan from 'morgan';
 
 const app: express = express();
+
+/**
+ * Setup paths for static resources and view templates
+ */
+const staticPath: string = path.resolve(__dirname, 'static');
+app.use(express.static(staticPath));
+
+const viewPath: string = path.resolve(__dirname, 'view');
+app.set('views', viewPath);
+app.set('view engine', 'pug');
+
+/**
+ * Setup body parser and cookie parser
+ */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+
+/**
+ * Setup request logger
+ */
+const logger: morgan = morgan('combined');
+app.use(logger);
+
+/**
+ * Setup router
+ */
+app.use('/', router);
+
+/**
+ * 'Not found' for unhandled urls
+ */
+app.use((req, res, next) => {
+  next(httpError(404));
+});
+
+/**
+ * Setup error handler
+ */
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(err.status || 500).send(err.message);
+});
 
 export default app;
