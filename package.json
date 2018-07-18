@@ -39,6 +39,7 @@
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.76.0",
     "nodemon": "^1.18.3",
-    "webpack": "^4.16.1"
+    "webpack": "^4.16.1",
+    "webpack-command": "^0.4.1"
   }
 }

@@ -9,7 +9,7 @@ import morgan from 'morgan';
 const app: express = express();
 
 /**
- * Setup paths for static resources and view templates
+ * Setup paths for public resources and view templates
  */
 const staticPath: string = path.resolve(__dirname, 'static');
 app.use(express.static(staticPath));
