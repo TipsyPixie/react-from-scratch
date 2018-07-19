@@ -2,27 +2,18 @@ const path = require('path');
 
 module.exports = {
   mode: "development",
-  entry: "./src/server/index.js",
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'public', 'scripts'),
     filename: "bundle.js",
-    publicPath: "/assets/"
+    publicPath: path.resolve(__dirname, 'public', 'assets')
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        // these are matching conditions, each accepting a regular expression or string
-        // test and include have the same behavior, both must be matched
-        // exclude must not be matched (takes preferrence over test and include)
-        // Best practices:
-        // - Use RegExp only in test and for filename matching
-        // - Use arrays of absolute paths in include and exclude
-        // - Try to avoid exclude and prefer include
-        issuer: { test, include, exclude },
-        // conditions for the issuer (the origin of the import)
+        issuer: { test },
         enforce: "pre",
-        // flags to apply these rules, even if they are overridden (advanced option)
         loader: "babel",
         options: {
           presets: ["env", "flow"]
@@ -31,29 +22,15 @@ module.exports = {
       {
         test: /\.html$/,
         use: [
-          // apply multiple loaders and options
           "htmllint-loader",
           {
             loader: "html-loader",
             options: {
-              /* ... */
             }
           }
         ]
       },
-      { oneOf: [ /* rules */ ] },
-      // only use one of these nested rules
-      { rules: [ /* rules */ ] },
-      // use all of these nested rules (combine with conditions to be useful)
-      { resource: { and: [ /* conditions */ ] } },
-      // matches only if all conditions are matched
-      { resource: { or: [ /* conditions */ ] } },
-      { resource: [ /* conditions */ ] },
-      // matches if any condition is matched (default for arrays)
-      { resource: { not: /* condition */ } }
-      // matches if the condition is not matched
     ],
-    /* Advanced module configuration (click to show) */  },
   resolve: {
     // options for resolving module requests
     // (does not apply to resolving to loaders)
