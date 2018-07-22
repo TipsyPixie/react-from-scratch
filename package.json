@@ -5,11 +5,9 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "build": "npm run babel:build",
-    "dev": "npm run nodemon:start",
-    "babel:build": "babel src -d dist",
-    "start": "node ./dist/server/index.js",
-    "nodemon:start": "./node_modules/.bin/nodemon -x node ./dist/server/index.js"
+    "dev": "npm run nodemon:exec && npm run webpack:watch",
+    "nodemon:exec": "nodemon -x babel-node ./server/index.js",
+    "webpack:watch": "webpack --watch --config ./webpack/config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -35,10 +33,12 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.76.0",
     "nodemon": "^1.18.3",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.1",
     "webpack-command": "^0.4.1"
   }

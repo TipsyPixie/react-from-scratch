@@ -1,8 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
   context: path.resolve(__dirname, '..'),
   output: {
@@ -29,17 +30,17 @@ module.exports = {
       },
     ]
   },
-  devtool: "eval-source-map",
+  devtool: "source-map",
   target: "web",
   plugins: [
     new webpack.NoEmitOnErrorsPlugin()
   ],
   bail: true,
-  watch: true,
-  watchOptions: {
-    aggregateTimeout: 5000
-  },
+  watch: false,
   optimization: {
-    minimize: false
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({})
+    ]
   }
 };
