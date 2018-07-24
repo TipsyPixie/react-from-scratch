@@ -5,18 +5,12 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "dev": "npm run nodemon:exec && npm run webpack:watch",
-    "nodemon:exec": "nodemon -x babel-node ./server/index.js",
-    "webpack:watch": "webpack --watch --config ./webpack/config.dev.js"
+    "dev": "nodemon --ignore public -x yarn run watch",
+    "watch": "yarn run webpack:build && babel-node ./server/index.js",
+    "webpack:build": "webpack --progress --profile --config ./webpack/config.dev.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TipsyPixie/react-from-scratch.git"
-  },
-  "author": {
-    "name": "Seongjae Hwang",
-    "email": "lotsofluck4m@gmail.com"
-  },
+  "repository": "git+https://github.com/TipsyPixie/react-from-scratch.git",
+  "author": "Seongjae Hwang <lotsofluck4m@gmail.com>",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/TipsyPixie/react-from-scratch/issues"
@@ -29,15 +23,21 @@
     "express": "^4.16.3",
     "http-errors": "^1.6.3",
     "morgan": "^1.9.0",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
     "flow-bin": "^0.76.0",
     "nodemon": "^1.18.3",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.1",
     "webpack-command": "^0.4.1"

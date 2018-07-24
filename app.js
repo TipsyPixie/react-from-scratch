@@ -11,10 +11,10 @@ const app: express = express();
 /**
  * Setup paths for public resources and view templates
  */
-const staticPath: string = path.resolve(__dirname, 'static');
-app.use(express.static(staticPath));
+const staticResourcePath: string = path.resolve(__dirname, 'public');
+app.use(express.static(staticResourcePath));
 
-const viewPath: string = path.resolve(__dirname, 'view');
+const viewPath: string = path.resolve(__dirname, 'views');
 app.set('views', viewPath);
 app.set('view engine', 'pug');
 
