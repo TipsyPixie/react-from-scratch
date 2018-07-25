@@ -2,19 +2,26 @@ const path = require('path');
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
+const rootPath = path.resolve(__dirname, '..');
+const srcPath = path.resolve(rootPath, 'src');
+const destPath = path.resolve(rootPath, 'public');
+
 module.exports = {
-  mode: 'production',
-  entry: './src/index.js',
-  context: path.resolve(__dirname, '..'),
+  mode: 'development',
+  entry: `${srcPath}/index.jsx`,
+  context: rootPath,
   output: {
-    path: path.resolve(__dirname, '..', 'public', 'scripts'),
-    publicPath: path.resolve(__dirname, '..', 'public', 'assets'),
-    filename: 'bundle.js',
+    path: `${destPath}/scripts`,
+    publicPath: `${destPath}/assets`,
+    filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  }
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         enforce: 'pre',
         exclude: '/node_modules/',
         loader: 'babel-loader',

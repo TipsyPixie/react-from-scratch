@@ -1,19 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const rootPath = path.resolve(__dirname, '..');
+const srcPath = path.resolve(rootPath, 'src');
+const destPath = path.resolve(rootPath, 'public');
+
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
-  context: path.resolve(__dirname, '..'),
+  entry: `${srcPath}/index.jsx`,
+  context: rootPath,
   output: {
-    path: path.resolve(__dirname, '..', 'public', 'scripts'),
-    publicPath: path.resolve(__dirname, '..', 'public', 'assets'),
+    path: `${destPath}/scripts`,
+    publicPath: `${destPath}/assets`,
     filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
