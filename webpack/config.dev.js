@@ -33,7 +33,8 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          'sass-loader
         ]
       }
     ]
@@ -45,9 +46,6 @@ module.exports = {
   ],
   bail: false,
   watch: false,
-  watchOptions: {
-    aggregateTimeout: 5000
-  },
   optimization: {
     minimize: false
   }
