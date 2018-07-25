@@ -31,12 +31,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.sass$/,
         exclude: '/node_modules/',
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
+          'sass-loader'
         ]
       }
     ]
