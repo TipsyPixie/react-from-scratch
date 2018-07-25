@@ -1,11 +1,12 @@
 import * as React from 'react';
-import '../stylesheets/index.sass';
+import HeaderBar from './HeaderBar';
+import '../stylesheets/App.sass';
 
 class App extends React.Component {
   render() {
     return (
       <div className='App'>
-        Yes Yes!
+        <HeaderBar title='Welcome to React!'/>
       </div>
     );
   }

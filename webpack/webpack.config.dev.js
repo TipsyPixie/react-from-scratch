@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', 'public', 'scripts'),
     publicPath: path.resolve(__dirname, '..', 'public', 'assets'),
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -17,7 +17,8 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
-          presets: ['env', 'flow', 'react']
+          presets: ['env', 'react'],
+          plugins: ['transform-class-properties']
         },
       },
       {
