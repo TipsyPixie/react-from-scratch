@@ -4,14 +4,14 @@
 * Node 9+
 ## Quick start
 1. Rename .env.sample file to .env, and setup environment variables
-  ```bash
-  mv ./.env.sample ./.env
-  ```
-  ```bash
-  NODE_ENV=devleopment
-  PORT=3000
-  ...
-  ```
+   ```bash
+   mv ./.env.sample ./.env
+   ```
+   ```bash
+   NODE_ENV=devleopment
+   PORT=3000
+   ...
+   ```
 1. Install package manager Yarn
    1. https://yarnpkg.com
    2. Or with NPM
