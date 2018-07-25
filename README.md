@@ -8,7 +8,7 @@
    mv ./.env.sample ./.env
    ```
    ```bash
-   NODE_ENV=devleopment
+   NODE_ENV=development
    PORT=3000
    ...
    ```
