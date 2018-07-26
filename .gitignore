@@ -5,6 +5,7 @@
 # build
 /dist
 /.cache
+bundle.js
 
 # Logs
 logs
