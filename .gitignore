@@ -3,7 +3,6 @@
 .vscode
 
 # build
-/dist
 /.cache
 bundle.js
 
