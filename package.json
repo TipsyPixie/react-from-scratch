@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "private": true,
   "scripts": {
-    "dev": "nodemon --ignore public -x yarn run watch",
+    "dev": "nodemon --ext jsx,pug,sass --ignore public -x yarn run watch",
     "watch": "yarn run webpack:build && babel-node ./server/index.js",
     "webpack:build": "webpack --progress --profile --config ./webpack/webpack.config.dev.js"
   },
@@ -36,6 +36,7 @@
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
+    "css-module-flow": "^1.0.0",
     "flow-bin": "^0.77.0",
     "node-sass": "^4.9.2",
     "nodemon": "^1.18.3",

@@ -1,3 +1,4 @@
+// @flow
 import app from '../app';
 import dotenv from 'dotenv';
 import path from 'path';

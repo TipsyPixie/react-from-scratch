@@ -1,16 +1,15 @@
 [ignore]
 /node_modules
-/public/script
+/public/scripts
 
 [include]
-/src
-/server
-/routes
 
 [libs]
 
 [lints]
 
 [options]
+module.name_mapper.extension='css' -> 'css-module-flow'
+module.name_mapper.extension='sass' -> 'css-module-flow'
 
 [strict]
