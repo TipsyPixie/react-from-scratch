@@ -20,9 +20,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
-        loader: 'babel-loader',
+        test: /\.jsx$|\.js$/,
         exclude: /node_modules/,
+        loader: 'babel-loader',
         options: {
           presets: ['env', 'react'],
           plugins: ['transform-class-properties']
