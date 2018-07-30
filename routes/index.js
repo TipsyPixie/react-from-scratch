@@ -1,9 +1,13 @@
-import express from'express';
+import * as express from 'express';
+import {getWallet} from './wallets';
 
-const router: express.Router = express.Router();
+const router = express.Router();
 
-router.get('/', (req, res) => {
+router.route('/').get((req, res) => {
   res.render('index');
 });
+
+router.route('/wallets/:seedString').get(getWallet);
+// router.route('/wallets/:seedString/:derivationPath').get(getWallet);
 
 export default router;

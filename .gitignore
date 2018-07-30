@@ -6,6 +6,9 @@
 /.cache
 bundle.js
 
+# flow
+/flow-typed
+
 # Logs
 logs
 *.log
