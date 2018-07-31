@@ -20,13 +20,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$|\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['env', 'react'],
-          plugins: ['transform-class-properties']
-        },
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-react',
+            '@babel/preset-flow'
+          ]
+        }
       },
       {
         test: /\.html$/,
@@ -38,6 +41,7 @@ module.exports = {
       },
       {
         test: /\.sass$/,
+        exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',

@@ -7,7 +7,7 @@ const srcPath = path.resolve(rootPath, 'src');
 const destPath = path.resolve(rootPath, 'public');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: `${srcPath}/index.jsx`,
   context: rootPath,
   output: {
@@ -21,17 +21,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$|\.js$/,
-        exclude: '/node_modules/',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['env', 'react'],
-          plugins: ['transform-class-properties']
-        },
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-react',
+            '@babel/preset-flow'
+          ]
+        }
       },
       {
         test: /\.html$/,
-        exclude: '/node_modules/',
+        exclude: /node_modules/,
         use: [
           'htmllint-loader',
           'html-loader'
@@ -39,7 +42,7 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        exclude: '/node_modules/',
+        exclude: /node_modules/,
         use: [
           'style-loader',
           'css-loader',

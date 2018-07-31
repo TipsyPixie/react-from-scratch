@@ -1,8 +1,8 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 
-const root = document.getElementById('root');
+const root: ?HTMLElement = document.getElementById('root');
 
-(root !== null) && ReactDOM.render(<App/>, root);
+(root != null) && ReactDOM.render(<App/>, root);

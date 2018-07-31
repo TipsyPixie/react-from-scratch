@@ -22,7 +22,6 @@ const viewPath = path.resolve(__dirname, 'views');
 app.set('views', viewPath);
 app.set('view engine', 'pug');
 
-
 /**
  * Setup body parser and cookie parser
  */

@@ -1,9 +1,9 @@
 [ignore]
-/node_modules
-/public/scripts
+./node_modules
+./public/scripts
 
 [include]
-/src
+./src
 
 [libs]
 
