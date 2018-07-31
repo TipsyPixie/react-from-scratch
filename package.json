@@ -2,7 +2,7 @@
   "name": "react-from-scratch",
   "version": "1.0.0",
   "description": "React from scratch",
-  "main": "dist/index.js",
+  "main": "server/index.js",
   "private": true,
   "scripts": {
     "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn run watch",
