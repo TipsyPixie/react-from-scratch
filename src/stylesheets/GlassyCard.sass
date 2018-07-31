@@ -1,0 +1,26 @@
+$opaqueEmerald: rgba(80, 220, 100, 0.8)
+$transparentEmerald: rgba(80, 220, 100, 0.4)
+$gray: rgba(136, 136, 136, 1)
+$transparentBlack: rgba(0, 0, 0, 0.5)
+
+.GlassyCard
+  position: relative
+  border: ridge 3px $opaqueEmerald
+  background: radial-gradient($transparentEmerald, $opaqueEmerald)
+  width: 200px
+  height: 50px
+  box-shadow: 0 0 10px .1px $gray
+  -webkit-transition: -webkit-transform .5s
+  transition: transform .5s
+  -webkit-transform-style: preserve-3d
+  transform-style: preserve-3d
+  &:hover
+    -webkit-transform: rotateY(180deg)
+    transform: rotateY(180deg)
+  span
+    color: $transparentBlack
+    position: relative
+    float: left
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
