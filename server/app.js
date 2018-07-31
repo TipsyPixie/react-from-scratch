@@ -12,13 +12,13 @@ const app = express();
 /**
  * Setup paths for public resources and view templates
  */
-const staticResourcePath = path.resolve(__dirname, 'public');
+const staticResourcePath = path.resolve(__dirname, '..', 'public');
 app.use(express.static(staticResourcePath));
 
 const faviconPath = path.resolve(staticResourcePath, 'assets', 'favicon.ico');
 app.use(favicon(faviconPath));
 
-const viewPath = path.resolve(__dirname, 'views');
+const viewPath = path.resolve(__dirname, '..', 'views');
 app.set('views', viewPath);
 app.set('view engine', 'pug');
 
@@ -51,7 +51,7 @@ app.use((req, res, next) => {
 /**
  * Setup error handler
  */
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
   console.log(err.stack);
   res.render('error', { errorCode: err.status, errorMessage: err.message });
 });
