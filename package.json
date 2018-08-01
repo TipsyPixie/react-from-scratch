@@ -41,7 +41,7 @@
     "@babel/preset-react": "^7.0.0-beta.55",
     "babel-loader": "^8.0.0-beta.4",
     "css-loader": "^1.0.0",
-    "flow-bin": "^0.69.0",
+    "flow-bin": "^0.77.0",
     "node-sass": "^4.9.2",
     "nodemon": "^1.18.3",
     "sass-loader": "^7.0.3",
