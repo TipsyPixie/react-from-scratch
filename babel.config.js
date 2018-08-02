@@ -1,4 +1,5 @@
 module.exports = {
   presets: ['@babel/preset-env'],
-  sourceMaps: true
+  sourceMaps: true,
+  plugins: ['@babel/plugin-proposal-class-properties']
 };
