@@ -9,7 +9,7 @@ class App extends React.Component<Props> {
   render() {
     return (
       <div className='App'>
-        <GlassyCard frontValue={'HEAD'} backValue={'TAIL'}/>
+        <GlassyCard frontValue={'HEAD'} backValue={'TAIL'} transitionTime={0.5}/>
       </div>
     );
   }
