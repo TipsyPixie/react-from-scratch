@@ -12,7 +12,7 @@ module.exports = {
   context: rootPath,
   output: {
     path: `${destPath}/scripts`,
-    publicPath: `${destPath}/assets`,
+    publicPath: '/',
     filename: 'bundle.js'
   },
   resolve: {
