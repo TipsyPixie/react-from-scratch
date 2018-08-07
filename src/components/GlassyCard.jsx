@@ -27,38 +27,42 @@ class GlassyCard extends React.Component<Props, State> {
 
   flip = () => {
     this.setState(
-      (prevState: State) => ({flipped: !(prevState.flipped)})
+      (prevState: State) => ({ flipped: !(prevState.flipped) })
     );
   };
 
   handleClick = () => {
-    if(!this.state.inTransition) {
+    if (!this.state.inTransition) {
       this.state.inTransition = true;
       this.flip();
 
       setTimeout(
         () => {
           this.state.inTransition = false;
-          },
+        },
         this.props.transitionTime * 1000
       );
     }
   };
 
+  get style() {
+    const rotationDegree = (this.state.flipped) ? 360 : 0;
+
+    return {
+      WebkitTransition: `-webkit-transform ${this.props.transitionTime}s`,
+      transition: `transform ${this.props.transitionTime}s`,
+      WebkitTransform: `rotateY(${rotationDegree}deg)`,
+      transform: `rotateY(${rotationDegree}deg)`
+    };
+  }
+
   render() {
     return (
       <div className='GlassyCard'
-           onClick={this.handleClick}
-           style={{
-             WebKitTransition: `-webkit-transform ${this.props.transitionTime}s`,
-             transition: `transform ${this.props.transitionTime}s`,
-             WebkitTransform: (this.state.flipped)? 'rotateY(0deg)' : 'rotateY(360deg)',
-             transform: (this.state.flipped)? 'rotateY(0deg)' : 'rotateY(360deg)'
-           }}>
+        onClick={this.handleClick}
+        style={this.style}>
         <span>
-          {
-            this.state.flipped ? this.props.backValue : this.props.frontValue
-          }
+          {this.state.flipped ? this.props.backValue : this.props.frontValue}
         </span>
       </div>
     );
