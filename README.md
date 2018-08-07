@@ -4,7 +4,7 @@
 
 * Yarn 1.7+
 * Node 9+
-* OS as Windows 10 or Ubuntu 18
+* Recommended OS as Windows 10 or Ubuntu 18
 
 ## Quick start
 
