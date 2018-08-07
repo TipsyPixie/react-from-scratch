@@ -25,13 +25,13 @@ class GlassyCard extends React.Component<Props, State> {
     inTransition: false
   };
 
-  flip = () => {
+  flip = (): void => {
     this.setState(
-      (prevState: State) => ({ flipped: !(prevState.flipped) })
+      (prevState: State) => ({flipped: !(prevState.flipped)})
     );
   };
 
-  handleClick = () => {
+  handleClick = (): void => {
     if (!this.state.inTransition) {
       this.state.inTransition = true;
       this.flip();
@@ -45,8 +45,8 @@ class GlassyCard extends React.Component<Props, State> {
     }
   };
 
-  get style() {
-    const rotationDegree = (this.state.flipped) ? 360 : 0;
+  get style(): { [key: string]: string } {
+    const rotationDegree: 360 | 0 = (this.state.flipped) ? 360 : 0;
 
     return {
       WebkitTransition: `-webkit-transform ${this.props.transitionTime}s`,
@@ -59,8 +59,8 @@ class GlassyCard extends React.Component<Props, State> {
   render() {
     return (
       <div className='GlassyCard'
-        onClick={this.handleClick}
-        style={this.style}>
+           onClick={this.handleClick}
+           style={this.style}>
         <span>
           {this.state.flipped ? this.props.backValue : this.props.frontValue}
         </span>
