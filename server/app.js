@@ -12,13 +12,15 @@ const app = express();
 /**
  * Setup paths for public resources and view templates
  */
-const staticResourcePath = path.resolve(__dirname, '..', 'public');
-app.use(express.static(staticResourcePath));
+const rootPath = path.resolve(__dirname, '..');
 
-const faviconPath = path.resolve(staticResourcePath, 'assets', 'favicon.ico');
+const staticPath = path.resolve(rootPath, 'public');
+app.use(express.static(staticPath));
+
+const faviconPath = path.resolve(staticPath, 'assets', 'favicon.ico');
 app.use(favicon(faviconPath));
 
-const viewPath = path.resolve(__dirname, '..', 'views');
+const viewPath = path.resolve(rootPath, 'views');
 app.set('views', viewPath);
 app.set('view engine', 'pug');
 
