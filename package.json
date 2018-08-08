@@ -1,24 +1,25 @@
 {
   "name": "react-from-scratch",
   "version": "1.0.0",
-  "description": "React from scratch",
-  "main": "server/index.js",
   "private": true,
-  "scripts": {
-    "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn run watch",
-    "watch": "yarn run webpack:dev && babel-node ./server/index.js",
-    "webpack:dev": "webpack --progress --profile --config ./webpack/webpack.config.dev.js"
+  "description": "React from scratch",
+  "homepage": "https://github.com/TipsyPixie/react-from-scratch#readme",
+  "bugs": {
+    "url": "https://github.com/TipsyPixie/react-from-scratch/issues"
   },
   "repository": "git+https://github.com/TipsyPixie/react-from-scratch.git",
+  "license": "UNLICENSED",
   "author": {
     "name": "Seongjae Hwang",
     "email": "lotsofluck4m@gmail.com"
   },
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/TipsyPixie/react-from-scratch/issues"
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn run start:dev",
+    "sort": "sort-package-json",
+    "start:dev": "yarn run webpack:dev && babel-node ./server/index.js",
+    "webpack:dev": "webpack --progress --profile --config ./webpack/webpack.config.dev.js"
   },
-  "homepage": "https://github.com/TipsyPixie/react-from-scratch#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
@@ -32,22 +33,23 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "webpack": "^4.16.2",
-    "webpack-command": "^0.4.1",
-    "babel-loader": "^8.0.0-beta.4",
     "@babel/cli": "^7.0.0-beta.55",
     "@babel/core": "^7.0.0-beta.55",
     "@babel/node": "^7.0.0-beta.55",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.55",
     "@babel/preset-flow": "^7.0.0-beta.55",
     "@babel/preset-react": "^7.0.0-beta.55",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.55",
+    "babel-loader": "^8.0.0-beta.4",
     "css-loader": "^1.0.0",
+    "flow-bin": "^0.77.0",
     "node-sass": "^4.9.2",
+    "nodemon": "^1.18.3",
     "sass-loader": "^7.0.3",
+    "sort-package-json": "^1.15.0",
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.7",
-    "flow-bin": "^0.77.0",
-    "nodemon": "^1.18.3"
+    "webpack": "^4.16.2",
+    "webpack-command": "^0.4.1"
   }
 }
