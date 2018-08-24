@@ -34,7 +34,7 @@
    yarn install
    ```
 
-4. Run nodemon
+4. Run nodemon to compile the code in realtime
 
    ```bash
    yarn run dev
