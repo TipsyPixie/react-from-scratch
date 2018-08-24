@@ -8,12 +8,12 @@
 
 ## Quick start
 
-1. Rename .env.sample file to .env, and setup environment variables
+1. Rename .env.sample file to .env, 
 
    ```bash
    mv ./.env.sample ./.env
    ```
-
+   and setup environment variables
    ```bash
    NODE_ENV=development
    PORT=3000
