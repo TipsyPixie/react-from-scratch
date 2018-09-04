@@ -15,9 +15,9 @@
   },
   "main": "server/index.js",
   "scripts": {
-    "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn run start:dev",
+    "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn start:dev",
     "sort": "sort-package-json",
-    "start:dev": "yarn run webpack:dev && babel-node ./server/index.js",
+    "start:dev": "yarn webpack:dev && babel-node ./server/index.js",
     "webpack:dev": "webpack --progress --profile --config ./webpack/webpack.config.dev.js"
   },
   "dependencies": {
