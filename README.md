@@ -37,7 +37,7 @@
 4. Run nodemon to compile the code in realtime
 
    ```bash
-   yarn run dev
+   yarn dev
    ```
 
 5. Happy hacking!
