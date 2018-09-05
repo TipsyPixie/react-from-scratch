@@ -13,7 +13,7 @@
    ```bash
    mv ./.env.sample ./.env
    ```
-   and setup environment variables
+   and setup environment variables in .env file
    ```bash
    NODE_ENV=development
    PORT=3000
