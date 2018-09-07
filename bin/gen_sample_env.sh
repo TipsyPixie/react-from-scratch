@@ -7,4 +7,4 @@ SAMPLE_ENV_FILE="$ROOT/.env.sample"
 set -o xtrace
 
 rm -f "$SAMPLE_ENV_FILE"
-sed -e 's/=.*/=/g' "$ENV_FILE" > "$SAMPLE_ENV_FILE"
+sed -E -e 's/=.+/=/g' "$ENV_FILE" > "$SAMPLE_ENV_FILE"
