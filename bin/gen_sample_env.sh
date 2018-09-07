@@ -2,8 +2,9 @@
 
 ROOT="$(dirname $0)/.."
 ENV_FILE="$ROOT/.env"
+SAMPLE_ENV_FILE="$ROOT/.env.sample"
 
 set -o xtrace
 
-rm -f "$ROOT/.env.sample"
-sed -e 's/=.*/=/g' "$ENV_FILE" > "$ROOT/.env.sample"
+rm -f "$SAMPLE_ENV_FILE"
+sed -e 's/=.*/=/g' "$ENV_FILE" > "$SAMPLE_ENV_FILE"
