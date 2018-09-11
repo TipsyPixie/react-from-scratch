@@ -24,11 +24,7 @@ export default new GraphQLObjectType({
     all_gadgets: {
       type: GraphQLList(gadgetType),
       description: 'All the gadgets in the database',
-      resolve: async () => {
-        const allGadgets = await Gadget.fetchAll();
-
-        return allGadgets.map((gadget) => ({ name: gadget.name }));
-      }
+      resolve: async () => (await Gadget.fetchAll()).toJSON()
     }
   }
 });
