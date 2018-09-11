@@ -1,15 +1,22 @@
-const dbConfig = require('./config').database;
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({
+  path: path.resolve(__dirname, '..', '.env')
+});
+
+const env = process.env;
 
 const knex = require('knex')(
   {
-    client: dbConfig.client,
+    client: 'postgresql',
     connection: {
-      host: dbConfig.host,
-      port: dbConfig.port,
-      user : dbConfig.username,
-      password : dbConfig.password,
-      database : dbConfig.database,
-      charset: dbConfig.charset
+      host: env.DB_HOST,
+      port: env.DB_PORT,
+      user : env.DB_USERNAME,
+      password : env.DB_PASSWORD,
+      database : env.DB_DATABASE,
+      charset: env.DB_CHARSET
     }
   }
 );

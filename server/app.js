@@ -1,11 +1,12 @@
 import express from 'express';
-import router from './routes';
 import path from 'path';
 import httpError from 'http-errors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 import favicon from 'serve-favicon';
+import ExpressGraphQL from 'express-graphql';
+import graphQLSchema from './schema';
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.set('view engine', 'pug');
  * Setup body parser and cookie parser
  */
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(cookieParser());
 
@@ -39,9 +40,20 @@ const logger = morgan('combined');
 app.use(logger);
 
 /**
- * Setup router
+ * Setup routes
  */
-app.use('/', router);
+
+const GraphQLServer = ExpressGraphQL({
+  schema: graphQLSchema,
+  graphiql: (app.get('env') === 'development')
+});
+
+app.get('/graphql', GraphQLServer);
+app.post('/graphql', GraphQLServer);
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 /**
  * 'Not found' for unhandled urls
@@ -55,7 +67,7 @@ app.use((req, res, next) => {
  */
 app.use((err, req, res, next) => {
   console.log(err.stack);
-  res.render('error', { errorCode: err.status, errorMessage: err.message });
+  res.render('error', {errorCode: err.status, errorMessage: err.message});
 });
 
 export default app;

@@ -20,11 +20,11 @@ module.exports = {
       tableName: 'knex_migrations_dev'
     }
   }
-
-  // production: {
+  // ,production: {
   //   client: 'postgresql',
   //   connection: {
   //     host: env.DB_HOST,
+  //     port: env.DB_PORT,
   //     database: env.DB_DATABASE,
   //     user: env.DB_USERNAME,
   //     password: env.DB_PASSWORD
@@ -34,7 +34,7 @@ module.exports = {
   //     max: 10
   //   },
   //   migrations: {
-  //     tableName: 'knex_migrations_prod'
+  //     tableName: 'knex_migrations_dev'
   //   }
   // }
 };
