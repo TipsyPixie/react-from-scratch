@@ -15,7 +15,14 @@
   },
   "main": "server/index.js",
   "scripts": {
+    "db:current": "knex migrate:currentVersion",
+    "db:makeMigration": "knex migrate:make",
+    "db:makeSeed": "knex seed:make",
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
+    "db:seed": "knex seed:run",
     "dev": "nodemon --ext js,jsx,pug,sass --ignore public -x yarn start:dev",
+    "sample-env": "./bin/gen_sample_env.sh",
     "sort": "sort-package-json",
     "start:dev": "yarn webpack:dev && babel-node ./server/index.js",
     "webpack:dev": "webpack --progress --profile --config ./webpack/webpack.config.dev.js"
