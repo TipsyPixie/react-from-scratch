@@ -13,6 +13,22 @@ const gadgetType = new GraphQLObjectType({
     name: {
       type: GraphQLNonNull(GraphQLString),
       description: 'The name which this gadget is known as'
+    },
+    webpage: {
+      type: GraphQLString,
+      description: 'A webpage of the gadget'
+    },
+    community: {
+      type: GraphQLString,
+      description: 'Communication channels, e.g. social media'
+    },
+    description: {
+      type: GraphQLString,
+      description: 'Description of the gadget'
+    },
+    image_url: {
+      type: GraphQLString,
+      description: 'URL of the representative image file'
     }
   }
 });

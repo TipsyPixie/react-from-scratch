@@ -4,5 +4,5 @@ import mutationType from './mutations';
 
 export default new GraphQLSchema({
   query: queryType,
-  mutation: null
+  mutation: mutationType
 });
