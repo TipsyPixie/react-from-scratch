@@ -47,11 +47,11 @@ export default new GraphQLObjectType({
         }
       },
       resolve: async (obj, { name }, context, info) => {
-        const gadgetsWithSameName = await Gadget.query()
+        const gadgetsWithSameAttributes = await Gadget.query()
           .select('name')
           .where('name', '=', name);
 
-        if (!gadgetsWithSameName[0]) {
+        if (gadgetsWithSameAttributes.length === 0) {
           await Gadget.query()
             .insert({name: name});
 
