@@ -1,5 +1,10 @@
 # React from Scratch
 
+## Backgrounds
+* [GraphQL](https://graphql.org/learn/ "Introduction to GraphQL")
+* [React](https://reactjs.org/tutorial/tutorial.html "Tutorial: Intro to React")
+* ~~gRPC~~
+
 ## Requirements
 
 * Yarn 1.7+
