@@ -1,5 +1,10 @@
 import {Gadget} from '../../database';
-import {GraphQLBoolean, GraphQLNonNull, GraphQLObjectType, GraphQLString} from 'graphql';
+import {
+  GraphQLBoolean,
+  GraphQLNonNull,
+  GraphQLObjectType,
+  GraphQLString
+} from 'graphql';
 
 const GadgetType = new GraphQLObjectType({
   name: 'Gadget',
@@ -41,11 +46,15 @@ export default new GraphQLObjectType({
           description: 'Name of the new gadget'
         }
       },
-      resolve: async ({name}) => {
-        const gadgetToAdd = new Gadget ({name: name});
+      resolve: async (obj, { name }, context, info) => {
+        const gadgetsWithSameName = await Gadget.query()
+          .select('name')
+          .where('name', '=', name);
 
-        if (gadgetToAdd.isNew()) {
-          await gadgetToAdd.save();
+        if (!gadgetsWithSameName[0]) {
+          await Gadget.query()
+            .insert({name: name});
+
           return true;
         }
         else {

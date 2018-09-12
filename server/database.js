@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
+import {Model} from 'objection';
+import Knex from 'knex';
 
 dotenv.config({
   path: path.resolve(__dirname, '..', '.env')
@@ -7,24 +9,23 @@ dotenv.config({
 
 const env = process.env;
 
-const knex = require('knex')(
-  {
+Model.knex(Knex({
     client: 'postgresql',
     connection: {
       host: env.DB_HOST,
       port: env.DB_PORT,
-      user : env.DB_USERNAME,
-      password : env.DB_PASSWORD,
-      database : env.DB_DATABASE,
+      user: env.DB_USERNAME,
+      password: env.DB_PASSWORD,
+      database: env.DB_DATABASE,
       charset: env.DB_CHARSET
     }
-  }
+  })
 );
 
-const bookshelf = require('bookshelf')(knex);
+class Gadget extends Model {
+  static get tableName() {
+    return 'gadgets';
+  }
+}
 
-const Gadget = bookshelf.Model.extend({
-    tableName: 'gadgets'
-});
-
-export { Gadget };
+export {Gadget};

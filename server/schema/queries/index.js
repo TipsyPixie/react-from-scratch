@@ -40,7 +40,7 @@ export default new GraphQLObjectType({
     all_gadgets: {
       type: GraphQLList(gadgetType),
       description: 'All the gadgets in the database',
-      resolve: async () => (await Gadget.fetchAll()).toJSON()
+      resolve: async () => await Gadget.query()
     }
   }
 });
