@@ -1,7 +1,7 @@
 const tableName = 'gadgets';
 
-exports.up = function(knex, Promise) {
-  return knex.schema.createTable(
+exports.up = (knex, Promise) =>
+  knex.schema.createTable(
     tableName,
     (table) => {
       table.increments();
@@ -13,8 +13,6 @@ exports.up = function(knex, Promise) {
       table.string('image_url').nullable();
     }
   );
-};
 
-exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists(tableName);
-};
+exports.down = (knex, Promise) =>
+  knex.schema.dropTableIfExists(tableName);
