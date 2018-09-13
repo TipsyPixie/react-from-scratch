@@ -26,7 +26,7 @@
    ```
 
 2. Install package manager Yarn
-   1. At [yarnpkg.com](https://yarnpkg.com)
+   1. At [yarnpkg.com](https://yarnpkg.com, "Yarn")
    2. Or with NPM
 
       ```bash
