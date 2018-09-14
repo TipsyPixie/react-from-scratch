@@ -55,3 +55,5 @@
    * [Polymer](https://www.polymer-project.org/ "Polymer Project")
    * [Nuxt.js](https://nuxtjs.org/ "Nuxt.js - Universal Vue.js Application") with [Vue.js](https://vuejs.org/v2/guide/index.html "introduction - Vue.js")
    * [Ember.js](https://www.emberjs.com/ "Ember.js - Homepage")
+   * Angular, Knockout, Backbone or et cetra.
+   * WTF DAMN SO MANY OPTIONS ARE THERE
